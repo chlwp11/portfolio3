@@ -7,7 +7,7 @@
                
                 //this.headerFn();
                 this.navFn();
-                //this.section1Fn();
+                this.section1Fn();
                 //this.section2Fn();
                 //this.section3Fn();
                 //this.section4Fn();
@@ -50,11 +50,175 @@
             },
             section1Fn:function(){
 
+                var $slide   = $('#section1 .slide');
+                var $prevBtn = $('#section1 .prev-btn');
+                var $nextBtn = $('#section1 .next-btn');
+                var cnt      = 0;
+                var setId    = null;
+
+                function mainNextSlideFn(){
+                    $slide.css({zIndex:1});
+                    $slide.eq(cnt==0?2:cnt-1).css({zIndex:2});
+                    $slide.eq(cnt).css({zIndex:3}).stop().animate({opacity:0},0).animate({opacity:1},1500);
+                }
+
+                function mainPrevSlideFn(){
+                    $slide.css({zIndex:1}).animate({opacity:1},0);
+                    $slide.eq(cnt).css({zIndex:2});
+                    $slide.eq(cnt==2?0:cnt+1).css({zIndex:3}).stop().animate({opacity:1},0).animate({opacity:0},1500);
+                }
+
+                function nextSlideCountFn(){
+                    cnt ++;
+                    if(cnt>2){
+                        cnt=0;
+                    }
+                    mainNextSlideFn();
+                }
+
+                function prevSlideCountFn(){
+                    cnt --;
+                    if(cnt<0){
+                        cnt=2;
+                    }
+                    mainPrevSlideFn();
+                }
+
+                $nextBtn.on({
+                    click:function(){
+                        if(!$slide.is(':animated')){
+                            nextSlideCountFn();
+                        }
+                    }
+                });
+
+                $prevBtn.on({
+                    click:function(){
+                        if(!$slide.is(':animated')){
+                            prevSlideCountFn();
+                            
+                        }
+                    }
+                });
+
+
+                function autoPlay(){
+                    setId = setInterval(nextSlideCountFn,6000);
+                }
+
+                autoPlay(); 
+
+
+
+
             },
             section7Fn:function(){
                 
-                
+                var $slideWrap = $('#section7 .slide-wrap');
+                var $slideView = $('#section7 .slide-view');
+                var $slideW    = $('#section7 .slide-box').innerWidth();
+                var n          = $('#section7 .slide-box').length-13;
+                var cnt        = 0;
+                var setId      = null;
+                var setId2      = null;
+                var mouseDown  = 0;
+                function responseFn(){
 
+                    $slideW  = $('#section7 .slide-box').innerWidth();
+                }
+                setTimeout(responseFn, 100);
+
+                $(window).resize(function(){
+                    responseFn();
+                })
+
+                function mainSlideFn(){
+                    $slideWrap.stop().animate({left:-$slideW*cnt},600,function(){
+
+                        if(cnt>n){ cnt = 0}
+
+                        if(cnt<0){ cnt = n}
+
+                        $slideWrap.stop().animate({left:-$slideW*cnt},0);                        
+                    });
+                }
+               
+
+                function nextSlideCountFn(){
+                    cnt ++;
+                    mainSlideFn();    
+                }
+                
+                function prevSlideCountFn(){
+                    cnt --;
+                    mainSlideFn();
+                }
+
+                var start = 0;
+                var end   = 0;
+
+                $slideView.on({
+                    mousedown:function(e){
+                        e.preventDefault();
+                        start = e.pageX;
+                    },
+                    start:function(e){
+                        e.preventDefault();
+                        start = e.originalEvent.changedTouches[0].pageX;
+                    },
+                    mouseup:function(e){
+                      e.preventDefault();
+                      end = e.pageX;
+                      touchSwipeFn();  
+                    },
+                    end:function(e){
+                        e.preventDefault();
+                        end = e.originalEvent.changedTouches[0].pageX;
+                        touchSwipeFn();
+                    },
+                    mouseleave:function(){
+                        if(mouseDown == 1){
+                            mouseDown = 0;
+                            end = e.pageX;
+                            touchSwipeFn();
+                        }
+                    }
+                })
+
+                function touchSwipeFn(){
+                    if(start-end > 0){
+                        if(!$slideWrap.is(':animated')){
+                            timerFn()
+                            nextSlideCountFn();
+                        }
+                    }
+                    if(start-end < 0){
+                        if(!$slideWrap.is(':animated')){
+                            timerFn()
+                            prevSlideCountFn();
+                        }
+                    }
+                }
+                
+                function autoFn(){
+                    setId = setInterval(nextSlideCountFn,4000);
+                }
+                autoFn();
+
+                function timerFn(){
+                    var t =0;
+                    clearInterval(setId);
+                    clearInterval(setId2);
+                    setId2 = setInterval(function(){
+                        t ++;
+                        if(t>4){
+                            clearInterval(setId);
+                            clearInterval(setId2);
+                            nextSlideCountFn();
+                            autoFn();
+                        }
+                    },1000);
+                }
             },
             calendarFn:function(){
                   
@@ -91,10 +255,7 @@
                     var nowyear  =new Date().getFullYear();
                     var nowmonth =new Date().getMonth()+1;
                     var nowdate  =new Date().getDate();
-                   
 
-                    console.log(nowyear , y);
-                    console.log(nowmonth , m);
 
                     //이달 달력 
                     
@@ -190,10 +351,11 @@
 
                 var $calWrap = $('.calendar');
                 var $calBtn  = $('.calendar-btn');
-                
+                var $calBtn  = $('.calendar-btn');
                 $calBtn.on({
                     click:function(){
                         $calWrap.stop().toggleClass('addCal');
+                        $calBtn.stop().toggleClass('addCal');
 
                     }
                 }) 

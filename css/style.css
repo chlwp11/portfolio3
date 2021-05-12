@@ -52,9 +52,6 @@
 
 }
 
-
-
-
 #wrap #main {z-index:2;position: relative;background:#23262d;width:100%;}
 
 /* 섹션1 */
@@ -73,19 +70,48 @@
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box {position:absolute;width:100%;height:100%;top:320px;left:280px;}
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap {width:100%;}
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap {width:100%;}
-#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box {float:left;width:156px;height:241px;background:rgba(206, 224, 2 , 1);}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box {float:left;width:0px;height:241px;background:rgba(206, 224, 2 , 1);transition: all .6s ease-in-out;}
+#wrap #main #section1.addtext .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box {width:0px;animation: text1 6s infinite;}
+
+@keyframes text1 {
+      0% {width:0px;}
+    30%  {width:156px;}
+    80%  {width:156px;}
+    100% {width:0px;}
+}
+
+
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box .left-box-wrap {display: inline-block;;width:100%;}
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box .left-box-wrap .title-wrap {width:100%;}
-#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box .left-box-wrap .title-wrap h2 {font-size:91px;font-weight:bold;color:#000;text-indent:-4px;letter-spacing:-8px;padding-top:20px;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box .left-box-wrap .title-wrap h2 {font-size:91px;font-weight:bold;color:#000;text-indent:-4px;letter-spacing:-8px;padding-top:20px;opacity: 0;transition: all .6s ease-in-out;}
+
+#wrap #main #section1.addtext .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box .left-box-wrap .title-wrap h2 {opacity: 1;animation: text2 6s infinite;}
+
+@keyframes text2{
+     0%  {opacity: 0;}
+    30%  {opacity: 1;}
+    80%  {opacity: 1;}
+    100% {opacity: 0;}
+}
 
 
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box {float:left;width:390px;height:241px;margin-left:60px;}
+
+
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap {margin:0;}
-#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap .right-box-wrap {width:100%;}
-#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap .right-box-wrap h2 {font-size:73px;font-weight: 600;color:#fff;padding:30px 0;line-height:95%;/* background:#fff; */}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap .right-box-wrap {width:100%;opacity:0;}
+#wrap #main #section1.addtext .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap .right-box-wrap {opacity:1;animation: text4 6s infinite;}
+
+@keyframes text4{
+  0%  {opacity: 0;}
+ 30%  {opacity: 1;}
+ 80%  {opacity: 1;}
+ 100% {opacity: 0;}
+}
+
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap .right-box-wrap h2 {font-size:70px;font-weight: 600;color:#fff;padding:30px 0;line-height:95%;/* background:#fff; */}
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap .right-box-wrap a {display:block;}
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap .right-box-wrap a h4 {display: inline-block;font-size:15px;font-weight:600;color:#fff;font-weight:bold;border-bottom: 1px solid #fff;padding-bottom: 2px;/* background:#fff */;}
-
 
 #wrap #main #section1 .wrap .gap .container .slide-container .content {z-index:2;position:absolute;width:861.5px;height:193px;bottom:0;right:0;background:#23262d;}
 #wrap #main #section1 .wrap .gap .container .slide-container .content .content-wrap {width:100%;}
@@ -265,7 +291,7 @@
 #wrap #main #section7 {width:100%;padding:130px 0;margin: 0 auto;}
 #wrap #main #section7 .wrap {width:100%;}
 #wrap #main #section7 .wrap .gap {margin:0 90px;}
-#wrap #main #section7 .wrap .gap .container {width:100%;overflow: hidden;}
+#wrap #main #section7 .wrap .gap .container {width:100%;}
 #wrap #main #section7 .wrap .gap .container .title-wrap {width:100%;text-align:center;padding-bottom: 133px;}
 #wrap #main #section7 .wrap .gap .container .title-wrap .left-line  {margin-top:10px;float:left;width:45%;height:1px;background:rgba(255,255,255, .25);}
 #wrap #main #section7 .wrap .gap .container .title-wrap h2          {float:left;padding:0 15px;width:8%;font-size:15px;font-weight:500;color:#cee002;font-weight:600;font-family:Arial, Helvetica, sans-serif}
@@ -273,9 +299,9 @@
 
 #wrap #main #section7 .wrap .gap .container .content {width:100%;}
 #wrap #main #section7 .wrap .gap .container .content .slide-container {width:100%;height:100%;}
-#wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view {width:100%;height:100%;}
-#wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap {width:calc(438.25px*6);height:100%;}
-#wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap .slide-box {float:left;width:408.25px;height:100%;margin-right:30px;transition: all .6s ease-in-out;}
+#wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view {position: relative;width:100%;height:100%;overflow: hidden;}
+#wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap {position: relative;width:calc(438.25px*18);height:100%;margin-left:calc(-438.25px*6);}
+#wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap .slide-box {position: relative;float:left;width:408.25px;height:100%;padding-right:30px;transition: all .6s ease-in-out;}
 
 #wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap .slide-box .slide {z-index:1;position:relative;top:0;width:100%;height:523.05px;background:url(../img/section7/architecture-img-16.jpg)no-repeat 50% 50%;background-size: 100%;transition: all .6s ease-in-out;}
 #wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap .slide-box .slide::after {content:"";display: block;z-index:2;position:absolute;top:0;left:0;width:100%;height:100%;background: rgba(206, 224, 2 , .5);opacity:0;transition: .6s ease-in-out;}
@@ -289,7 +315,7 @@
 #wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap .slide-box .slide4 {background-image: url(../img/section7/architecture-img-20.jpg);}
 #wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap .slide-box .slide5 {background-image: url(../img/section7/architecture-img-21.jpg);}
 
-#wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap .slide-box .slide .btn-wrap {z-index:3;position:absolute;top:55%;left:50%;width:100%;opacity:0;transition: all 1s ease-in-out;}
+#wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap .slide-box .slide .btn-wrap {z-index:3;position:absolute;top:55%;left:50%;width:50%;opacity:0;transition: all 1s ease-in-out;}
 #wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap .slide-box:hover .slide .btn-wrap {top:50%;opacity:1;}
 #wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap .slide-box .slide .btn-wrap span {display:inline-block;}
 #wrap #main #section7 .wrap .gap .container .content .slide-container .slide-view .slide-wrap .slide-box .slide .btn-wrap span a {display:block;width:45px;height:45px;background:#fff;border-radius: 50%;text-align: center;}
@@ -449,9 +475,9 @@
 .nav .wrap .gap .container > ul > li.right-box .close .close-btn i {font-size: 20px;color:#fff;}
 
 /* 달력 */
-.calendar {z-index:3;position:fixed;width:250px;height:300px;top:-300px;left:150px;font-size:12px;text-align:center;opacity:0;transition:all 1s ease-in-out;background: url(../img/calendar/bg.png)no-repeat 50% 50%;background-size:100%;}
+.calendar {z-index:3;position:fixed;width:250px;height:300px;top:70px;left:42%;font-size:12px;text-align:center;opacity:0;transition:all 1s ease-in-out;background: url(../img/calendar/bg.png)no-repeat 50% 50%;background-size:100%;}
 
-.calendar.addCal {top:50px;opacity:1;}
+.calendar.addCal {top:100px;opacity:1;}
 
 .calendar div {font-size:20px;color:#fff;padding-bottom: 15px;}
 .calendar table {width:100%;z-index:1;position:relative;}
@@ -470,9 +496,16 @@
 .btn-box span a i {font-size:16px;color:#fff;padding: 8px 15px;}
 
 
-.calendar-btn {z-index:3;position:fixed;width:150px;height:300px;top:30px;left:45%;}
-.calendar-btn span {display:inline-block;border: 1px solid #fff;}
+.calendar-btn {z-index:3;position:fixed;width:150px;height:37px;top:30px;left:45%;}
+.calendar-btn span {display:inline-block;border:1px solid #fff;}
 .calendar-btn span a {display: block;font-size:16px;background:#23262d;color:#fff;padding: 8px 20px;}
+.calendar-btn span a i {font-size:16px;padding:2px 0 5px 0;}
+.calendar-btn.addCal span a i {transform: rotate(-45deg);animation:plus 1s;}
+
+@keyframes plus{
+  0%    {transform: rotate(0deg);}
+  100%  {transform: rotate(-45deg);}
+}
 
 
 /* top스크롤 */
