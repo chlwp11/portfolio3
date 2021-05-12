@@ -83,7 +83,7 @@
 
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box .left-box-wrap {display: inline-block;;width:100%;}
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box .left-box-wrap .title-wrap {width:100%;}
-#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box .left-box-wrap .title-wrap h2 {font-size:91px;font-weight:bold;color:#000;text-indent:-4px;letter-spacing:-8px;padding-top:20px;opacity: 0;transition: all .6s ease-in-out;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box .left-box-wrap .title-wrap h2 {font-size:91px;font-weight:bold;color:#000;text-indent:-4px;letter-spacing:-8px;padding-top:20px;opacity:0;transition: all .6s ease-in-out;}
 
 #wrap #main #section1.addtext .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .left-box .left-box-wrap .title-wrap h2 {opacity: 1;animation: text2 6s infinite;}
 
@@ -100,9 +100,9 @@
 
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap {margin:0;}
 #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap .right-box-wrap {width:100%;opacity:0;}
-#wrap #main #section1.addtext .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap .right-box-wrap {opacity:1;animation: text4 6s infinite;}
+#wrap #main #section1.addtext .wrap .gap .container .slide-container .slide-view .slide-wrap  .slide .text-box .text-wrap .text-gap .right-box .right-box-gap .right-box-wrap {opacity:1;animation: text3 6s infinite;}
 
-@keyframes text4{
+@keyframes text3{
   0%  {opacity: 0;}
  30%  {opacity: 1;}
  80%  {opacity: 1;}

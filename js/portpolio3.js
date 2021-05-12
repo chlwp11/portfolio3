@@ -49,12 +49,13 @@
             
             },
             section1Fn:function(){
-
+                var $section1 = $('#section1');
                 var $slide   = $('#section1 .slide');
                 var $prevBtn = $('#section1 .prev-btn');
                 var $nextBtn = $('#section1 .next-btn');
                 var cnt      = 0;
                 var setId    = null;
+                var setId2   = null;
 
                 function mainNextSlideFn(){
                     $slide.css({zIndex:1});
@@ -86,29 +87,49 @@
 
                 $nextBtn.on({
                     click:function(){
+                        $section1.removeClass('addtext');
                         if(!$slide.is(':animated')){
+                            timerFn()
                             nextSlideCountFn();
                         }
+                        $section1.addClass('addtext');
                     }
                 });
 
                 $prevBtn.on({
                     click:function(){
+                        $section1.removeClass('addtext');
                         if(!$slide.is(':animated')){
+                            timerFn()
                             prevSlideCountFn();
-                            
                         }
+                        $section1.addClass('addtext');
                     }
                 });
 
 
                 function autoPlay(){
                     setId = setInterval(nextSlideCountFn,6000);
+                    $section1.addClass('addtext');
                 }
 
                 autoPlay(); 
 
+                function timerFn(){
+                    var t = 0;
+                    clearInterval(setId);
+                    clearInterval(setId2);
 
+                    setId2 = setInterval(function(){
+                        t++;
+                        if(t>4){
+                            clearInterval(setId);
+                            clearInterval(setId2);
+                            nextSlideCountFn();
+                            autoPlay();
+                        }   
+                    },1000)
+                }
 
 
             },
