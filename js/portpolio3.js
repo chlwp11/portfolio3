@@ -8,13 +8,14 @@
                 //this.headerFn();
                 this.navFn();
                 this.section1Fn();
-                //this.section2Fn();
-                //this.section3Fn();
-                //this.section4Fn();
-                //this.section5Fn();
-                //this.section6Fn();
+                this.section2Fn();
+                this.section3Fn();
+                this.section4Fn();
+                this.section5Fn();
+                this.section6Fn();
                 this.section7Fn();
-                //this.section8Fn();
+                this.section8Fn();
+                //this.section9Fn();
                 //this.footerFn();
                 //this.smoothScrollFn();
                 //this.mouseWheelEventFn();
@@ -133,6 +134,131 @@
 
 
             },
+            section2Fn:function(){
+
+                var $section2 = $('#section2').offset().top;
+                var col = $('#section2 .content>ul>li')
+                var t = 0;
+
+                console.log($section2);
+
+                function scrollFn(){
+                    
+                    col.eq(0).stop().animate({opacity:1},1000,function(){
+                        col.eq(1).stop().animate({opacity:1},1000,function(){
+                            col.eq(2).stop().animate({opacity:1},1000)
+                        });
+                    });
+                    
+                }
+
+                $(window).scroll(function(){
+                    if($(this).scrollTop() == 0){
+                        t=0;
+                        col.stop().animate({opacity:0},0);
+                    }
+
+                    if($(this).scrollTop() > $section2){
+                        if( t == 0 ){
+                            t=1;
+                            scrollFn();
+                        }
+                    }
+                });
+
+
+            },
+            section3Fn:function(){
+                var section3 = $('#section3').offset().top;
+                var col      = $('#section3 .container>ul>li');
+                var t = 0;
+                function scrollFn(){
+                    col.eq(0).stop().animate({opacity:1},1200,function(){
+                        col.eq(1).stop().animate({opacity:1},1200,function(){
+                            col.eq(2).stop().animate({opacity:1},1200,function(){
+                                col.eq(3).stop().animate({opacity:1},1200)
+                        
+                            })
+                        })
+                    })
+                }
+
+                $(window).scroll(function(){
+
+                    if($(this).scrollTop() == 0){
+                        t=0;
+                        col.stop().animate({opacity:0},0);
+                    }
+                    if($(this).scrollTop() > section3){
+                        if( t==0){
+                            t = 1;
+                            scrollFn();
+                        }
+                    }
+      
+                })
+            },
+            
+            section4Fn:function(){
+                var section4 = $('#section4').offset().top;
+                var col      = $('#section4 .content>ul>li');
+                var t   = 0;
+                
+                function scrollFn(){
+                    col.eq(0).stop().animate({opacity:1},1000,function(){
+                        col.eq(1).stop().animate({opacity:1},1000,function(){
+                            col.eq(2).stop().animate({opacity:1},1000,function(){
+                                col.eq(3).stop().animate({opacity:1},1000)
+                        
+                            })
+                        })
+                    })
+                }
+
+                $(window).scroll(function(){
+
+                    if($(this).scrollTop() == 0){
+                        t=0;
+                        col.stop().animate({opacity:0},0);
+                    }
+                    if($(this).scrollTop() > section4){
+                        if( t==0){
+                            t = 1;
+                            scrollFn();
+                        }
+                    }
+      
+                })
+
+            },
+            
+            section5Fn:function(){ 
+                var $section5Top = $('#section5').offset().top;
+                var $section5 = $('#section5');
+                var t = 0;
+
+                function scrollFn(){
+                    $section5.addClass('addScroll')
+                }
+                $(window).scroll(function(){
+                    if($(this).scrollTop() == 0){
+                        t = 0;
+                        $section5.removeClass('.addScroll');
+                    }
+                    if($(this).scrollTop() > $section5Top-200){
+                        if(t == 0){
+                            t = 1;
+                            scrollFn()
+                        }
+                    }
+                });
+            },
+        
+            section6Fn:function(){
+
+            },
+            
+
             section7Fn:function(){
                 
                 var $slideWrap = $('#section7 .slide-wrap');
@@ -204,6 +330,7 @@
                             touchSwipeFn();
                         }
                     }
+                    
                 })
 
                 function touchSwipeFn(){
@@ -240,6 +367,9 @@
                         }
                     },1000);
                 }
+            },
+            section8Fn:function(){
+
             },
             calendarFn:function(){
                   
