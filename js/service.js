@@ -1,6 +1,6 @@
 (function ($) {
 
-    var about = {
+    var service = {
 
 
         init: function () {
@@ -50,42 +50,52 @@
 
         },
         section3Fn:function(){
-            var $slideWrap = $('#section3 .slide-wrap');
-            var $slideW = $('#section3 .slide').innerWidth()+30;
-            var n = $('#section3 .slide').length-9;
+            
+        },
+        section4Fn:function(){
+
+            var $slideWrap = $('#section4 .slide-wrap');
+            var $slideW = $('#section4 .slide').innerWidth();
+            var $nextBtn = $('#section4 .next-btn'); 
+            var $prevBtn = $('#section4 .prev-btn'); 
+            var n = $('#section4 .slide').length-7;
             var setId = null;
             var setId2 = null;
             var cnt = 0;
-            var $slideView = $('#section3 .slide-view');
+            var $slideView = $('#section4 .slide-view');
 
-            var $section3 = $('#section3');
-            var $section3Top = $('#section3').offset().top-200;
+            var $section4 = $('#section4');
             var t = 0;
+            
+            var $rightboxWrap = $('#section4 .right-box-wrap');
+            var $section4Top = $('#section4').offset().top;
+            var $section5Top = $('#section5').offset().top;
+
+            var oldScrollTop = 0; //이전 스크롤 값
+            var newScrollTop = 0; //새로운 스크롤 값
 
             
-            function scrollFn(){
+           /*  function scrollFn(){
                 $section3.addClass('addScroll');
             }
 
             $(window).scroll(function(){
                 if($(this).scrollTop() == 0){
                     t = 0;
-                    $section3.removeClass('addScroll');
+                    $section4.removeClass('addScroll');
                 }
-                if($(this).scrollTop() > $section3Top){
+                if($(this).scrollTop() > $section4Top){
                     if(t == 0){
                         t = 1;
                         scrollFn()
                     }
                 }
             })
-
-
-
+            */
 
 
             $(window).resize(function(){
-                slideW = $('#section3 .slide').innerWidth()+30;
+                slideW = $('#section3 .slide').innerWidth();
             });
 
             function mainSlideFn(){
@@ -110,7 +120,20 @@
                 mainSlideFn();
             }
 
-            
+
+            $nextBtn.on({
+                click:function(){
+                    timerFn();
+                    nextSlideCountFn();
+                }
+            })
+
+            $prevBtn.on({
+                click:function(){
+                    timerFn();
+                    prevSlideCountFn();
+                }
+            })
 
             var start = 0;
             var end   = 0;
@@ -180,30 +203,30 @@
                 },1000);
             }
 
-        },
-        section4Fn:function(){
 
-            var $section4 = $('#section4');
-            var $section4Top = $('#section4').offset().top-200;
-            var t = 0;
+            if($(this).scrollTop()> $section4Top+120 && $(this).scrollTop() < $section5Top ){
+                newScrollTop = $(window).offset().top;
+                
+                if( (oldScrollTop - newScrollTop) > 0  ){
+                    
+                    imgTop+=2;
+                    $rightboxWrap.css({top:imgTop,transition:'none'})
+                }
+                if( (oldScrollTop - newScrollTop) < 0  ){
+                    
+                    imgTop-=2;
+                    $rightboxWrap.css({top:imgTop,transition:'none'})
+                }
 
-            
-            function scrollFn(){
-                $section4.addClass('addScroll');
+                oldScrollTop = newScrollTop;
             }
 
-            $(window).scroll(function(){
-                if($(this).scrollTop() == 0){
-                    t = 0;
-                    $section4.removeClass('addScroll');
-                }
-                if($(this).scrollTop() > $section4Top){
-                    if(t == 0){
-                        t = 1;
-                        scrollFn()
-                    }
-                }
-            })
+
+
+
+
+
+
 
         },
         section5Fn:function(){
@@ -321,6 +344,6 @@
         
     }
 
-    about.init();
+    service.init();
 
 })(jQuery);

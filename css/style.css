@@ -7,7 +7,7 @@
 
 #wrap {z-index: 1;position: relative;width:100%;height:100%;background:#23262d;margin: 0 auto;}
 
-#wrap #header {z-index:3;position:fixed;background:#23262d;width:100%;height:100px;}
+#wrap #header {z-index:2;position:relative;background:#23262d;width:100%;height:100px;}
 #wrap #header.addTop {top:-100px;}
 #wrap #header.addHeader {top:0;}
 
