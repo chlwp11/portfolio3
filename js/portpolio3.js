@@ -21,6 +21,7 @@
                 this.calendarFn();
                 this.calendarbtnFn();
                 this.goTopFn();
+                this.quickMenuFn();
                 //this.ajaxFn();            
 
             },
@@ -654,7 +655,26 @@
                    }
                });
             
+            },
+
+            
+        quickMenuFn:function(){
+            var $window = $(window);
+            var $quickMenu = $('.quick-Menu');
+            var quickTop = ($window.innerHeight()-$quickMenu.innerHeight())/2;
+
+            function quickMenuBoxFn(){
+                $quickMenu.stop().animate({top : ($window.scrollTop() + quickTop) });
             }
+
+            $window.scroll(function(){
+
+                quickMenuBoxFn();
+            })
+        
+
+
+        }
         
             
         }

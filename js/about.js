@@ -14,6 +14,7 @@
             this.section6Fn();
             this.section7Fn();
             this.section8Fn();
+            this.quickMenuFn();
             //this.footerFn();
             //this.smoothScrollFn();
             //this.mouseWheelEventFn();
@@ -232,7 +233,7 @@
         },
         section6Fn:function(){
             var $section6 = $('#section6');
-            var $section6Top = $('#section6').offset().top-200;
+            var $section6Top = $('#section5').offset().top;
             var t = 0;
 
             
@@ -316,7 +317,27 @@
                }
            });
         
+        },
+
+        quickMenuFn:function(){
+            var $window = $(window);
+            var $quickMenu = $('.quick-Menu');
+            var quickTop = ($window.innerHeight()-$quickMenu.innerHeight())/2;
+
+            function quickMenuBoxFn(){
+                $quickMenu.stop().animate({top : ($window.scrollTop() + quickTop) });
+            }
+
+            $window.scroll(function(){
+
+                quickMenuBoxFn();
+            })
+        
+
+
         }
+
+
     
         
     }
