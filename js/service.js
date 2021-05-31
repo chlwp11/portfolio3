@@ -83,7 +83,6 @@
 
         },
         section4Fn:function(){
-
             var $slideWrap = $('#section4 .slide-wrap');
             var $slideW = $('#section4 .slide').innerWidth();
             var $nextBtn = $('#section4 .next-btn'); 
@@ -96,17 +95,9 @@
 
             var $section4 = $('#section4');
             var t = 0;
-            
-            var $rightboxWrap = $('#section4 .right-box-wrap');
+
             var $section4Top = $('#section4').offset().top;
-            var $section5Top = $('#section5').offset().top;
 
-            var oldScrollTop = 0; //이전 스크롤 값
-            var newScrollTop = 0; //새로운 스크롤 값
-
-           function scrollFn(){
-                $section4.addClass('addScroll');
-            }
 
             $(window).scroll(function(){
                 if($(this).scrollTop() == 0){
@@ -120,8 +111,14 @@
                     }
                 }
             })
-            
 
+
+
+           function scrollFn(){
+                $section4.addClass('addScroll');
+            }
+
+          
 
             $(window).resize(function(){
                 slideW = $('#section3 .slide').innerWidth();
@@ -231,26 +228,8 @@
                     }
                 },1000);
             }
-
-
-            if($(this).scrollTop()> $section4Top+120 && $(this).scrollTop() < $section5Top ){
-                newScrollTop = $(window).offset().top;
-                
-                if( (oldScrollTop - newScrollTop) > 0  ){
-                    
-                    imgTop+=2;
-                    $rightboxWrap.css({top:imgTop,transition:'none'})
-                }
-                if( (oldScrollTop - newScrollTop) < 0  ){
-                    
-                    imgTop-=2;
-                    $rightboxWrap.css({top:imgTop,transition:'none'})
-                }
-
-                oldScrollTop = newScrollTop;
-            }
-
-
+            
+         
 
 
 
@@ -302,7 +281,7 @@
             var $section6Top = $('#section6').offset().top;
             var col = $('#section6 .content > ul > li');
             var t =0;
-            console.log(col);
+           
             function scrollFn(){
                 col.eq(1).stop().animate({opacity:1},800,function(){
                     col.eq(0).stop().animate({opacity:1},1000,function(){
@@ -368,8 +347,7 @@
             var $slideW = $('#section8 .slide').innerWidth()+70;
             var n = $('#section8 .slide').length-25;
             var cnt = 0
-            
-            console.log(n);
+
             
             $(window).resize(function(){
                 $slideW = $('#section8 .slide').innerWidth()+70;
@@ -390,7 +368,7 @@
 
 
             function autoPlay(){
-                setId = setInterval(nextSlideCountFn,1500);
+                setId = setInterval(nextSlideCountFn,1000);
             }
 
              autoPlay(); 

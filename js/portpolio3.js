@@ -23,7 +23,7 @@
                 this.goTopFn();
                 this.quickMenuFn();
                 //this.ajaxFn();            
-
+                this.cookieFn();
             },
             
             navFn:function(){
@@ -674,6 +674,39 @@
         
 
 
+        },
+        cookieFn:function(){
+            var start = null;
+            var end = null;
+
+
+            //2-1
+            function getCookieFn (name){
+                start = 0;
+                end = document.cookie.indexOf('='); //0~
+                
+
+                if( document.cookie.slice(start , end ) == name ){
+                    start =  document.cookie.indexOf('=');
+                    return document.cookie.slice(start+1); //no        
+                    
+                }
+
+                return ''; //못 찾으면
+               
+            }
+
+            //2-2
+            function openPopFn (){
+                var isCookie = getCookieFn('popup');
+
+                    if( isCookie !== 'no'){
+                        window.open('popup.html','popup','width=500, height=800,top:0,left:0');
+                    }
+
+                }
+
+            openPopFn ();
         }
         
             

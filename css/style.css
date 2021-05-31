@@ -480,7 +480,7 @@
 .nav .wrap .gap .container > ul > li.right-box .close .close-btn i {font-size: 20px;color:#fff;}
 
 /* 달력 */
-.calendar {z-index:3;position:fixed;width:250px;height:300px;top:70px;left:42%;font-size:12px;text-align:center;opacity:0;transition:all 1s ease-in-out;background: url(../img/calendar/bg.png)no-repeat 50% 50%;background-size:100%;}
+.calendar {z-index:3;position:fixed;width:300px;height:260px;top:70px;left:42%;font-size:12px;text-align:center;opacity:0;transition:all 1s ease-in-out;background: url(../img/calendar/bg.png)no-repeat 50% 50%;background-size:100%;background-color: #222;}
 
 .calendar.addCal {top:100px;opacity:1;}
 
@@ -522,7 +522,7 @@
 
 /* quickMenu */
 
-.quick-Menu {display: none;z-index: 4;position:absolute;width:90px;height:300px;background:#fff;top:0;left:75%;border: 1.5px solid #ccc;box-shadow: 3px 3px 6px rgba(0,0,0, .4);font-weight: 700;}
+.quick-Menu {display: none;z-index: 4;position:absolute;width:90px;height:300px;background:#fff;top:15%;left:75%;border: 1.5px solid #ccc;box-shadow: 3px 3px 6px rgba(0,0,0, .4);font-weight: 700;}
 .quick-Menu .wrap {width:100%;} 
 .quick-Menu .wrap .gap {margin:0 10px;} 
 .quick-Menu .wrap .gap .container {width:100%;} 
@@ -530,3 +530,19 @@
 .quick-Menu .wrap .gap .container ul li {font-size:12px;background-image: linear-gradient(to right, rgb(85, 111, 255), rgb(85, 111, 255), rgb(224, 95, 196), rgb(247, 103, 166), rgb(255, 121, 142));-webkit-background-clip:text;-webkit-text-fill-color: transparent;padding: 20px 0;text-align: center;border-bottom: 1px solid rgba(130,130,130, .3);border-top: 1px solid rgba(130,130,130, .3);} 
 .quick-Menu .wrap .gap .container ul li:first-child {border-bottom: 1px solid rgba(130,130,130, .3);border-top: 0px solid rgba(130,130,130, .3);} 
 .quick-Menu .wrap .gap .container ul li:last-child  {border-bottom: 0px solid rgba(130,130,130, .3);border-top: 1px solid rgba(130,130,130, .3);} 
+
+
+/* 팝업창 스타일 */
+#popWrap {width:100%;height:100%;}
+#popWrap .gap {width:100%;height:100%;}
+#popWrap .gap .container {width:100%;height:100%;}
+#popWrap .gap .container .content {width:100%;height:100%;position: relative;background: #f0f0f0;}
+#popWrap .gap .container .content .popup-img {width:100%;height:100%;background: url(../img/popup.jpg)no-repeat 50% 50%;background-size:cover;}
+
+/* 내용스타일 */
+
+#popWrap .gap .container .content .button-box {position:absolute;bottom:30px;right:25px;}
+#popWrap .gap .container .content .button-box form span {display: inline-block;}
+#popWrap .gap .container .content .button-box form span input[type='radio'] {width:auto;}
+#popWrap .gap .container .content .button-box form span label {font-size: 15px;}
+#popWrap .gap .container .content .button-box form button {padding:3px 10px;background: #fff;color:#222;font-size:12px;margin-left: 8px;cursor: pointer;}
